@@ -22,6 +22,11 @@
     img {
         width: 400px;
         height: 40px;
+
+        @media screen and (max-width: 1000px) {
+            width: 200px;
+            height: 35px;
+        }
     }
 }
 
