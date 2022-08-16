@@ -20,7 +20,7 @@ const Navbar = () => {
             ))}
         </ul>
 
-        <div className='app__navbar-menu'>
+        <div className=   'app__navbar-menu'>
             <GiHamburger onClick={() => setToggle(true)} />
 
             {toggle && (

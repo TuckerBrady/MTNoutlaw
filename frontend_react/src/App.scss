@@ -59,7 +59,7 @@
     text-transform: capitalize;
   
     span {
-      color: var(--sage-green);
+      color: var(--loden-green);
     }
   
     @media screen and (min-width: 2000px) {
@@ -126,8 +126,8 @@
       }
   
       &:hover {
-        background-color: var(--sage-green);
-        border-color: var(--sage-green);
+        background-color: var(--loden-green);
+        border-color: var(--loden-green);
   
         svg {
           color: var(--white-color);
@@ -166,7 +166,7 @@
       transition: background-color 0.2s ease-in-out;
   
       &:hover {
-        background-color: var(--sage-green);
+        background-color: var(--loden-green);
       }
   
       @media screen and (min-width: 2000px) {
