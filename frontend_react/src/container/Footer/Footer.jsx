@@ -1,10 +1,28 @@
-import React from 'react'
+import React from 'react';
 
+import { AppWrap, MotionWrap } from '../../wrapper';
+import { SocialMedia } from '../../components';
+import ContactForm from '../../components/ContactForm';
 import './Footer.scss';
+
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <>
+      <h2 className="head-text">Reach Out <span>&</span> Let's Talk</h2>
+      <ContactForm />
+      <div className="copyright">
+        <SocialMedia />
+        <div>
+          <p className="p-text">© 2022 <span>MTN Outlaw</span></p>
+          <p className="p-text">All Rights Reserved</p>
+        </div>
+      </div>
+    </>
   )
 }
 
-export default Footer
+export default AppWrap(
+  MotionWrap(Footer, 'app__footer'),
+  'Contact',
+  'app__graybg'
+)

@@ -2,8 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 import { AppWrap } from '../../wrapper';
-import './Header.scss';
 import { images } from '../../constants';
+import './Header.scss';
 
 const scaleVariants = {
   whileInView: {
@@ -25,13 +25,6 @@ const Header = () => {
         className="app__header-info"
       >
         <div className="app__header-badge">
-          <div className="badge-cmp app__flex">
-            <div style={{ marginLeft: 20 }}>
-              <p className="p-text">Welcome to the</p>
-              <h1 className="head-text">MTN Outlaws</h1>
-            </div>
-          </div>
-
           <div className="tag-cmp app__flex">
             <p className="p-text">Sometimes the train to success needs to be held up,</p>
             <p className="p-text">the mainstream needs to be dammed,</p>
