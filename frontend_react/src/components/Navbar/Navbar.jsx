@@ -29,9 +29,9 @@ const Navbar = () => {
                 <div>
                     <GiArrowCluster onClick={() => setToggle(false)} />
                     <ul className='app__navbar-links'>
-                        {['Home', 'About', 'Learn', 'Podcast', 'Shop', 'Contact'].map((item) => (
+                        {['Home', 'Learn', 'Podcast', 'Shop'].map((item) => (
                             <li key={item}>
-                                <a href={`${item}`} onClick={() => setToggle(false)}>{item}</a>
+                                <a href={`/${item}`} onClick={() => setToggle(false)}>{item}</a>
                             </li>
                         ))}
                     </ul>
