@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { AppWrap, MotionWrap } from '../../wrapper';
 import './Podcast.scss';
 const Podcast = () => {
   return (
@@ -7,4 +8,8 @@ const Podcast = () => {
   )
 }
 
-export default Podcast
+export default AppWrap(
+  MotionWrap(Podcast, 'app__podcast'),
+  'Podcast',
+  'app__whitebg'
+)
