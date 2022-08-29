@@ -8,7 +8,7 @@ import './Footer.scss';
 const Footer = () => {
   return (
     <>
-      <h2 className="head-text">Reach Out <span>&</span> Let's Talk</h2>
+      <h2 className="head-text">Contact the <span>MTN Outlaws</span></h2>
       <ContactForm />
       <div className="copyright">
         <SocialMedia />
@@ -24,5 +24,5 @@ const Footer = () => {
 export default AppWrap(
   MotionWrap(Footer, 'app__footer'),
   'Contact',
-  'app__graybg'
+  'app__whitebg'
 )

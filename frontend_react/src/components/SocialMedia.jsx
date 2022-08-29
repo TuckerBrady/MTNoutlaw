@@ -5,7 +5,7 @@ import { FaFacebook } from 'react-icons/fa';
 const SocialMedia = () => {
   return (
       <div className="app__social">
-        <p className="p-text"><span>Connect</span> With Us</p>
+        <p className="p-text"><span>Connect</span> With Us!</p>
         <div className="app__social-icon-container">
           <a href="https://www.linkedin.com/in/tucker-a-brady/" target="_blank" rel="noreferrer">
             <div>    
