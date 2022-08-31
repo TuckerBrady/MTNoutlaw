@@ -44,7 +44,7 @@ const Header = () => {
           whileInView={{ scale: [0,1] }}
           transition={{ duration: 1, ease: 'easeInOut' }}
           src={images.circle}
-          alt="profile_circle"
+          alt="mtn_landing_page_logo"
           className="overlay_circle"
         />
       </motion.div>
@@ -52,9 +52,9 @@ const Header = () => {
       <motion.div
         variant={scaleVariants}
         whileInView={scaleVariants.whileInView}
-        className="app__header-circles"
+        className="app__header-squares"
       >
-        {[images.javascript, images.react, images.node].map((circle, index) => (
+        {[images.microphone, images.campfire, images.social].map((circle, index) => (
           <div className="circle-cpm app__flex" key={`circle${index}`}>
             <img src={circle} alt="circle" />
           </div>
