@@ -44,6 +44,11 @@ export default {
      ]
     },
     {
+      name: 'isFeatured',
+      title: 'Featured Article',
+      type: 'boolean'
+    },
+    {
       name: 'categories',
       title: 'Categories',
       type: 'array',

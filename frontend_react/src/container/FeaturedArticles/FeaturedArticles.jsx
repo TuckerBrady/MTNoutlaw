@@ -10,11 +10,11 @@ const FeaturedArticles = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    const query = `*[_type == "post"]`
+    const query = `*[_type == "post" && isFeatured == true]`
     client.fetch(query)
         .then((data) => { 
             setPosts(data);
-             
+            console.log(data);
         })
         .catch(console.error) 
     }, []
