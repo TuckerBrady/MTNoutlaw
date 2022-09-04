@@ -1,48 +1,90 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { HiChevronLeft, HiChevronRight } from 'react-icons/hi';
+import { AiFillEye } from 'react-icons/ai';
+import { PortableText } from '@portabletext/react'
 
 import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
 import './FeaturedArticles.scss';
 const FeaturedArticles = () => {
   const [posts, setPosts] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [categories, setCategory] = useState([])
   const [animateCard, setanimateCard] = useState({ y: 0, opacity: 1 });
 
   useEffect(() => {
     const query = `*[_type == "post"]`
     client.fetch(query)
         .then((data) => { 
-            setPosts(data); 
-        }) 
-    }, [])
+            setPosts(data);
+             
+        })
+        .catch(console.error) 
+    }, []
+  )
+
+  useEffect(() => {
+    const query = `*[_type == "category"] {title}`
+    client.fetch(query)
+    .then((data) =>{ 
+      setCategory(data);
+      console.log(data)
+    })
+    .catch(console.error)
+    }, []
+  )
   
-    const featuredPost = posts[currentIndex];
-
-    const handleClick = (index) => {
-        setCurrentIndex(index);
-    }
-
+  
   return (
     <>
-        <h2 className="head-text">Featured <span>Articles</span>: {posts.length}</h2>
-        {posts.length && (
-            <>
-                <div className="app__work-portfolio">
-                {posts.map((post, index) => (
-                    <div className="app__testimonial-item app__flex" key={index}>
-                        <img src={urlFor(post.mainImage)} alt={post.title} />
-                    </div>
-                ))}
-                </div>
-            </>
-        )}
-      
+       <h2 className="head-text">Featured <span>Articles</span></h2>
+
+      <motion.div
+        animate={animateCard}
+        transition={{ duration: 0.5, delayChildren: 0.5 }}
+        className="app__blog-featured"
+      >
+        {posts.map((post, index) => (
+          <div className="app__blog-item app__flex" key={index}>
+            <PortableText value={post.categories[0].title} />
+            <div className="app__blog-img app__flex">
+              <img src={urlFor(post.mainImage)} alt={post.title} />
+              <motion.div
+                whileHover={{opacity: [0, 1]}}
+                transition={{ duration: 0.25, ease: 'easeInOut', staggerChildren: 0.5 }}
+                className="app__blog-hover app__flex"
+              >
+                <a href={`/blog/${post.slug.current}`} target="_blank" rel="noreferrer">
+                <motion.div
+                    whileInView={{ scale: [0, 1] }}
+                    whileHover={{ scale: [1, 0.9] }}
+                    transition={{ duration: 0.25 }}
+                    className="app__flex"
+                  >
+                    <AiFillEye />
+                  </motion.div>
+                </a>
+              </motion.div>
+            </div>
+
+            <div className="app__blog-content app__flex">
+              <h4 className="bold-text">{post.title}</h4>
+              <div className="p-text" style={{ marginTop: 10 }}>
+                <PortableText value={post.blurb} />
+              </div>          
+            
+              <div className="app__work-tag app__flex">
+                <p className="p-text">{post.tags[0]}</p>
+              </div>
+            
+            </div>
+
+          </div>
+        ))}
+      </motion.div>      
     </>
   )
 }
- 
+
 export default AppWrap(
   MotionWrap(FeaturedArticles, 'app__featured_articles') ,
   'FeaturedArticles',
