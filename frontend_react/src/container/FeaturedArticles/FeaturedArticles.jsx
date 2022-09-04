@@ -8,8 +8,6 @@ import { urlFor, client } from '../../client';
 import './FeaturedArticles.scss';
 const FeaturedArticles = () => {
   const [posts, setPosts] = useState([]);
-  const [categories, setCategory] = useState([])
-  const [animateCard, setanimateCard] = useState({ y: 0, opacity: 1 });
 
   useEffect(() => {
     const query = `*[_type == "post"]`
@@ -21,25 +19,12 @@ const FeaturedArticles = () => {
         .catch(console.error) 
     }, []
   )
-
-  useEffect(() => {
-    const query = `*[_type == "category"] {title}`
-    client.fetch(query)
-    .then((data) =>{ 
-      setCategory(data);
-      console.log(data)
-    })
-    .catch(console.error)
-    }, []
-  )
-  
   
   return (
     <>
        <h2 className="head-text">Featured <span>Articles</span></h2>
 
       <motion.div
-        animate={animateCard}
         transition={{ duration: 0.5, delayChildren: 0.5 }}
         className="app__blog-featured"
       >
@@ -50,14 +35,14 @@ const FeaturedArticles = () => {
               <img src={urlFor(post.mainImage)} alt={post.title} />
               <motion.div
                 whileHover={{opacity: [0, 1]}}
-                transition={{ duration: 0.25, ease: 'easeInOut', staggerChildren: 0.5 }}
+                transition={{ duration: 0.05, ease: 'easeInOut', staggerChildren: 0.5 }}
                 className="app__blog-hover app__flex"
               >
-                <a href={`/blog/${post.slug.current}`} target="_blank" rel="noreferrer">
+                <a href={`/blog/${post.slug.current}`}>
                 <motion.div
                     whileInView={{ scale: [0, 1] }}
                     whileHover={{ scale: [1, 0.9] }}
-                    transition={{ duration: 0.25 }}
+                    transition={{ duration: 0.5 }}
                     className="app__flex"
                   >
                     <AiFillEye />
