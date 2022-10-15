@@ -1,8 +1,10 @@
 import React from 'react';
 
 import { FeaturedArticles, Footer, Header, Podcast, Shop } from './container';
+import Husky from './container/HuskyDivision/Husky';
 import { Navbar } from './components';
 import './App.scss';
+
 const App = () => {
   return (
     <div className='app'>
@@ -10,7 +12,8 @@ const App = () => {
       <Header />
       <FeaturedArticles />
       <Podcast />
-      <Shop />
+      <Husky />
+      {/* <Shop /> */}
       <Footer />
     </div>
   );
